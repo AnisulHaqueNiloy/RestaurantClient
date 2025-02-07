@@ -1,0 +1,23 @@
+[
+  {
+    "image": "https://i.ibb.co.com/Mk18HJV/one.jpg",
+    "heading": "Delicious Delights Await!",
+    "description": "Explore a world of flavors with our curated selection of mouthwatering dishes. Fresh, authentic, and made just for you!",
+    "buttonText": "Discover All Foods",
+    "buttonLink": "/allfoods"
+  },
+  {
+    "image": "https://i.ibb.co.com/qjM0rTX/three.jpg",
+    "heading": "Savor Every Bite",
+    "description": "Experience the joy of great taste with our handpicked menu. Perfectly crafted to satisfy your cravings!",
+    "buttonText": "View All Foods",
+    "buttonLink": "/allfoods"
+  },
+  {
+    "image": "https://i.ibb.co.com/dmr6Cyn/two.jpg",
+    "heading": "Taste the Difference",
+    "description": "Dive into a culinary adventure with dishes that tell a story. Let your taste buds lead the way!",
+    "buttonText": "Explore All Foods",
+    "buttonLink": "/allfoods"
+  }
+]

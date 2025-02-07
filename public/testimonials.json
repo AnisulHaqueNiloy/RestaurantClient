@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "image": "https://i.ibb.co/Mk18HJV/one.jpg",
+    "desc": "This is hands down the best food service I've ever experienced! Fresh, delicious, and worth every penny."
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "image": "https://i.ibb.co/dmr6Cyn/two.jpg",
+    "desc": "Amazing taste and exceptional quality! Highly recommended for food lovers."
+  },
+  {
+    "id": 3,
+    "name": "Emily Johnson",
+    "image": "https://i.ibb.co/qjM0rTX/three.jpg",
+    "desc": "The variety of dishes is impressive, and every bite is a treat. Fantastic service!"
+  },
+  {
+    "id": 4,
+    "name": "Michael Brown",
+    "image": "https://i.ibb.co/Mk18HJV/one.jpg",
+    "desc": "Absolutely loved it! The food was fresh, flavorful, and exceeded my expectations."
+  },
+  {
+    "id": 5,
+    "name": "Sarah Davis",
+    "image": "https://i.ibb.co/dmr6Cyn/two.jpg",
+    "desc": "Great customer service and amazing dishes. I'm already a loyal customer!"
+  },
+  {
+    "id": 6,
+    "name": "Chris Wilson",
+    "image": "https://i.ibb.co/qjM0rTX/three.jpg",
+    "desc": "If you're looking for top-notch food and service, this is the place to be. Highly impressed!"
+  },
+  {
+    "id": 7,
+    "name": "Anna Garcia",
+    "image": "https://i.ibb.co/Mk18HJV/one.jpg",
+    "desc": "The flavors are out of this world! Everything was perfect and delivered on time."
+  },
+  {
+    "id": 8,
+    "name": "David Martinez",
+    "image": "https://i.ibb.co/dmr6Cyn/two.jpg",
+    "desc": "Truly the best food experience I've had in a long time. Kudos to the team!"
+  }
+]

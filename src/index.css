@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-links .active {
+  color: blue !important;
+  background-color: transparent !important;
+}
+
+.nav-link:hover {
+  color: aqua;
+  transition: ease-in-out 3s;
+}
+html {
+  overflow-y: scroll;
+}
+.dark {
+  --bg-color: #121212;
+  --text-color: #000000;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
