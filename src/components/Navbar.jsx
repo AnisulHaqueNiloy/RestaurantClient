@@ -48,8 +48,8 @@ const Navbar = () => {
   }, [theme]);
 
   return (
-    <div className="fixed w-full z-30 ">
-      <div className="navbar bg-transparent backdrop-blur-lg w-11/12 mx-auto">
+    <div className="fixed w-full z-30 bg-red-600 ">
+      <div className="navbar   backdrop-blur-lg w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div

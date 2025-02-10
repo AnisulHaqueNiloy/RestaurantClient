@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 .nav-links .active {
-  color: blue !important;
-  background-color: transparent !important;
+  color: rgb(253, 253, 253) !important;
+  background-color: black !important;
 }
 
 .nav-link:hover {

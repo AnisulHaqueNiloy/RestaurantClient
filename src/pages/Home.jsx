@@ -3,6 +3,7 @@ import Carousel from "../components/Carousel";
 import Testimonial from "../components/Testimonial";
 import TopSellingFoods from "../components/TopSellingFoods";
 import CuisineTimeline from "../components/CuisineTimeline";
+import DiscountBanner from "../components/DiscountBanner";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
         <TopSellingFoods></TopSellingFoods>
         <CuisineTimeline></CuisineTimeline>
         <Testimonial></Testimonial>
+        <DiscountBanner></DiscountBanner>
       </div>
     </div>
   );
