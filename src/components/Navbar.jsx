@@ -16,6 +16,28 @@ const Navbar = () => {
       <li>
         <NavLink to="/gallery">Gallery</NavLink>
       </li>
+
+      {!user ? (
+        <li>
+          <NavLink to="/register">Register</NavLink>
+        </li>
+      ) : (
+        ""
+      )}
+
+      {user ? (
+        <>
+          <li>
+            <NavLink to="/myfoods">My Food</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myorders">My Order</NavLink>
+          </li>
+        </>
+      ) : (
+        ""
+      )}
+
       {user ? (
         <li
           onClick={() => logout()}
@@ -28,13 +50,6 @@ const Navbar = () => {
         <li>
           <NavLink to="/login">Login</NavLink>
         </li>
-      )}
-      {!user ? (
-        <li>
-          <NavLink to="/register">Register</NavLink>
-        </li>
-      ) : (
-        ""
       )}
     </>
   );
@@ -85,7 +100,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal  px-1 nav-links  ">{link}</ul>
           <button
             onClick={toggleTheme}
-            className="btn bg-black text-white btn-sm text-white border-white hover:bg-gray-700 hidden md:block"
+            className="btn bg-black/20 text-white btn-sm text-white border-white hover:bg-gray-700 hidden md:block"
           >
             {theme === "light" ? "Dark Mode" : "Light Mode"}
           </button>
