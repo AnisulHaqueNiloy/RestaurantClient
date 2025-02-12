@@ -3,15 +3,28 @@ import React, { useEffect, useState } from "react";
 import { BsStar } from "react-icons/bs";
 import { FaEye, FaShoppingCart } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import Loader from "../Loader"; // Import the Loader component
 
 const TopSellingFoods = () => {
   const [foods, setFoods] = useState([]);
+  const [loading, setLoading] = useState(true); // Initialize loading state
 
   useEffect(() => {
     axios
       .get("https://restaurant-server-rouge.vercel.app/topfoods")
-      .then((res) => setFoods(res.data));
+      .then((res) => {
+        setFoods(res.data);
+        setLoading(false); // Set loading to false once data is fetched
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+        setLoading(false); // Set loading to false even if there's an error
+      });
   }, []);
+
+  if (loading) {
+    return <Loader />; // Show the spinner while loading
+  }
 
   return (
     <div className="bg-gray-100 py-10">
@@ -42,7 +55,7 @@ const TopSellingFoods = () => {
                   <span className="text-gray-600 text-sm ml-1">4.1 (500+)</span>
                 </span>
               </div>
-              <div className="flex items-center mt-2 ">
+              <div className="flex items-center mt-2">
                 <p className="line-clamp-2">{food?.Description}</p>
               </div>
               <div className="mt-2 flex justify-between items-center">
@@ -61,29 +74,6 @@ const TopSellingFoods = () => {
               </div>
             </div>
           </div>
-          // <div key={food._id} className="card bg-white shadow-xl rounded-lg">
-          //   <figure className="h-52">
-          //     <img
-          //       src={food.FoodImage}
-          //       alt={food.FoodName}
-          //       className="w-full h-full object-cover rounded-t-lg"
-          //     />
-          //   </figure>
-          //   <div className="card-body p-4">
-          //     <h2 className="card-title text-xl font-semibold">
-          //       {food.FoodName}
-          //     </h2>
-          //     <p className="text-gray-700">${food?.Price}</p>
-          //     <div className="mt-4 flex justify-center">
-          //       <button className="btn btn-primary flex items-center gap-2">
-          //         <NavLink to={`/foods-detail/${food._id}`}>
-          //           {""}
-          //           <FaEye /> Details
-          //         </NavLink>
-          //       </button>
-          //     </div>
-          //   </div>
-          // </div>
         ))}
       </div>
       <div className="text-center mt-8">

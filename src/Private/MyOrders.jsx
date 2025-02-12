@@ -6,33 +6,36 @@ import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import UseAxios from "../UseAxios";
 import { Helmet } from "react-helmet";
+import Loader from "../Loader"; // Importing your Loader component
 
 const MyOrders = () => {
   const axiosI = UseAxios();
   const { user } = useContext(AuthContext);
 
   const [bdata, setbData] = useState([]);
-
-  // Fetch food data
+  const [loading, setLoading] = useState(true); // Set initial loading state to true
 
   // Fetch purchase data
   useEffect(() => {
-    // fetch(`https://restaurant-server-rouge.vercel.app/purchase?email=${user.email}`)
-    //   .then((res) => res.json())
-    //   .then((data) => setbData(data));
+    setLoading(true); // Set loading to true when the fetch starts
     axiosI
       .get(`/purchase?email=${user?.email}`)
-      .then((res) => setbData(res.data));
-  }, [user?.email]);
-  console.log(bdata);
+      .then((res) => {
+        setbData(res.data);
+        setLoading(false); // Set loading to false once the data is fetched
+      })
+      .catch((err) => {
+        console.error("Error fetching data:", err);
+        setLoading(false); // Set loading to false if there's an error
+      });
+  }, [user?.email, axiosI]);
+
   // Handle delete
   const handleDelete = async (id) => {
     try {
       await axios.delete(
         `https://restaurant-server-rouge.vercel.app/foods-delete/${id}`
       );
-      // Update the UI after deletion
-
       setbData(bdata.filter((item) => item._id !== id));
       Swal.fire({
         icon: "error",
@@ -44,6 +47,8 @@ const MyOrders = () => {
       console.error("Error deleting the item:", error);
     }
   };
+
+  if (loading) return <Loader />; // Show the loader while loading
 
   return (
     <div className="p-8">

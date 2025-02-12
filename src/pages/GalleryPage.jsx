@@ -3,6 +3,7 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { AuthContext } from "../authprovider/AuthProvider";
 import PageTitle from "../components/PageTitle";
+import Loader from "../Loader";
 
 const GalleryPage = () => {
   const [open, setOpen] = useState(false);
@@ -10,6 +11,7 @@ const GalleryPage = () => {
   const { user } = useContext(AuthContext);
 
   // Gallery images
+
   const images = [
     {
       src: "https://i.ibb.co.com/z6q0Y29/chicken.jpg",

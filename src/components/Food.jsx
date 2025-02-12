@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
+import Loader from "../Loader";
+import { BsStar } from "react-icons/bs";
 
 const Food = () => {
   const [foods, setFoods] = useState([]); // Original food data
   const [filteredFoods, setFilteredFoods] = useState([]); // Filtered food data
   const [search, setSearch] = useState(""); // Search query
+  const [loading, setLoading] = useState(true);
 
   // Fetch all foods from the API
   useEffect(() => {
@@ -13,10 +16,11 @@ const Food = () => {
       .then((res) => res.json())
       .then((data) => {
         setFoods(data);
-        setFilteredFoods(data); // Initially show all foods
+        setFilteredFoods(data);
+        setLoading(false); // Initially show all foods
       });
   }, []);
-
+  if (loading) return <Loader />;
   // Handle search input
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
@@ -50,57 +54,49 @@ const Food = () => {
           filteredFoods.map((food) => (
             <div
               key={food._id}
-              className="card bg-base-100 shadow-xl rounded-lg relative"
+              className="bg-white rounded-lg shadow-md overflow-hidden max-w-sm hover:scale-105 transform transition ease-in-out"
             >
-              {/* Quantity Badge */}
-              <div className="absolute top-2 right-2 badge badge-primary">
-                {food.Quantity > 0 ? (
-                  <p>Quantity: {food.Quantity}</p>
-                ) : (
-                  <p>Item is not available</p>
-                )}
-              </div>
-
-              {/* Food Image */}
-              <figure>
-                <img
-                  src={food.FoodImage}
-                  alt={food.FoodName}
-                  className="w-full h-48 object-cover rounded-t-lg"
-                />
-              </figure>
-
-              {/* Card Body */}
-              <div className="card-body">
-                {/* Food Name */}
-                <h2 className="card-title text-lg font-bold">
-                  {food.FoodName}
-                </h2>
-
-                {/* Description */}
-                <p className="text-sm text-gray-600 line-clamp-3">
-                  {food.Description}
-                </p>
-
-                {/* Food Details */}
-                <div className="mt-2">
-                  <p>
-                    <span className="font-medium">Category:</span>{" "}
-                    {food.Category}
-                  </p>
-                  <p>
-                    <span className="font-medium">Food Origin:</span>{" "}
-                    {food.FoodOrigin}
-                  </p>
+              <img
+                src={food.FoodImage}
+                alt={food.FoodName}
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <div className="absolute top-2 right-2 badge badge-primary">
+                  {food.Quantity > 0 ? (
+                    <p>Quantity: {food.Quantity}</p>
+                  ) : (
+                    <p>Item is not available</p>
+                  )}
                 </div>
+                <div className="flex justify-between">
+                  <h3 className="font-semibold text-lg text-gray-800 line-clamp-1">
+                    {food.FoodName}
+                  </h3>
+                  <span className="flex items-center">
+                    <BsStar className="text-yellow-500 text-sm inline-block" />
+                    <span className="text-gray-600 text-sm ml-1">
+                      4.1 (500+)
+                    </span>
+                  </span>
+                </div>
+                <div className="flex items-center mt-2">
+                  <p className="line-clamp-2">{food?.Description}</p>
+                </div>
+                <div className="mt-2 flex justify-between items-center">
+                  <div className="gap-5 flex items-center">
+                    <span className="font-semibold text-gray-800">
+                      ${food?.Price}
+                    </span>
+                    <span className="text-gray-600 text-sm mr-2">
+                      {food?.Category}
+                    </span>
+                  </div>
 
-                {/* View Details Button */}
-                <button className="btn btn-primary mt-3 w-full flex items-center gap-2">
-                  <NavLink to={`/foods-detail/${food._id}`}>
-                    <AiOutlineEye size={20} />
-                    View Details
-                  </NavLink>
-                </button>
+                  <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
+                    <NavLink to={`/foods-detail/${food._id}`}>See more</NavLink>
+                  </button>
+                </div>
               </div>
             </div>
           ))
