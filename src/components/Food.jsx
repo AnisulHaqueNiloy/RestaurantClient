@@ -36,7 +36,7 @@ const Food = () => {
   };
 
   return (
-    <div>
+    <div className="w-11/12 mx-auto">
       {/* Search Bar */}
       <div className="flex justify-center mb-6">
         <input
@@ -49,7 +49,7 @@ const Food = () => {
       </div>
 
       {/* Food Cards */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 py-10">
+      <div className="grid  md:grid-cols-2 lg:grid-cols-4 gap-8 py-10">
         {filteredFoods.length > 0 ? (
           filteredFoods.map((food) => (
             <div
