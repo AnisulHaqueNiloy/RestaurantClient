@@ -8,7 +8,8 @@ const Food = () => {
   const [foods, setFoods] = useState([]); // Original food data
   const [filteredFoods, setFilteredFoods] = useState([]); // Filtered food data
   const [search, setSearch] = useState(""); // Search query
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // Loading state
+  const [sortOrder, setSortOrder] = useState("asc"); // Sort order (asc or desc)
 
   // Fetch all foods from the API
   useEffect(() => {
@@ -20,7 +21,9 @@ const Food = () => {
         setLoading(false); // Initially show all foods
       });
   }, []);
+
   if (loading) return <Loader />;
+
   // Handle search input
   const handleSearch = (e) => {
     const query = e.target.value.toLowerCase();
@@ -33,6 +36,20 @@ const Food = () => {
         food.Category.toLowerCase().includes(query)
     );
     setFilteredFoods(filtered);
+  };
+
+  // Handle sorting by price (ascending)
+  const handleSortAsc = () => {
+    const sorted = [...filteredFoods].sort((a, b) => a.Price - b.Price);
+    setFilteredFoods(sorted);
+    setSortOrder("asc");
+  };
+
+  // Handle sorting by price (descending)
+  const handleSortDesc = () => {
+    const sorted = [...filteredFoods].sort((a, b) => b.Price - a.Price);
+    setFilteredFoods(sorted);
+    setSortOrder("desc");
   };
 
   return (
@@ -48,8 +65,28 @@ const Food = () => {
         />
       </div>
 
+      {/* Sorting Buttons */}
+      <div className="flex justify-end gap-4 mb-6">
+        <button
+          onClick={handleSortAsc}
+          className={`btn ${
+            sortOrder === "asc" ? "btn-primary" : "btn-outline"
+          }`}
+        >
+          Sort by Price (Low to High)
+        </button>
+        <button
+          onClick={handleSortDesc}
+          className={`btn ${
+            sortOrder === "desc" ? "btn-primary" : "btn-outline"
+          }`}
+        >
+          Sort by Price (High to Low)
+        </button>
+      </div>
+
       {/* Food Cards */}
-      <div className="grid  md:grid-cols-2 lg:grid-cols-4 gap-8 py-10">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 py-10">
         {filteredFoods.length > 0 ? (
           filteredFoods.map((food) => (
             <div
@@ -95,6 +132,9 @@ const Food = () => {
 
                   <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
                     <NavLink to={`/foods-detail/${food._id}`}>See more</NavLink>
+                  </button>
+                  <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
+                    <NavLink to={`/update/${food._id}`}>Update</NavLink>
                   </button>
                 </div>
               </div>

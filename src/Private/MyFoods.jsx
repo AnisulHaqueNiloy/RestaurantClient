@@ -73,6 +73,9 @@ const MyFoods = () => {
                 <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
                   <NavLink to={`/foods-detail/${food._id}`}>See more</NavLink>
                 </button>
+                <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
+                  <NavLink to={`/update/${food._id}`}>Update</NavLink>
+                </button>
               </div>
             </div>
           </div>

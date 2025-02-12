@@ -26,7 +26,7 @@ const Update = () => {
     const name = form.FoodName.value;
     const category = form.Category.value;
     const quantity = form.Quantity.value;
-    const price = form.Price.value;
+    const price = parseFloat(form.Price.value);
     const origin = form.FoodOrigin.value;
     const username = form.Name.value;
     const email = form.Email.value;
