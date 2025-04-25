@@ -5,6 +5,7 @@ import leaf from "../../src/assets/leaf.png";
 import pizza from "../../src/assets/pizza.png";
 import tomato from "../../src/assets/tomato.png";
 import bg from "../../src/assets/bg-2.jpeg";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   return (
@@ -28,7 +29,7 @@ export default function HeroSection() {
           whileTap={{ scale: 0.95 }}
           className="bg-rose-600 hover:bg-rose-700 text-white px-6 py-3 rounded flex items-center gap-2 font-bold"
         >
-          Order Now <FaArrowRight />
+          <Link to={"/allfoods"}>Order now</Link> <FaArrowRight />
         </motion.button>
       </div>
 
@@ -44,7 +45,6 @@ export default function HeroSection() {
           45% Off
         </motion.div>
 
-        {/* Pizza Image - infinite float animation */}
         <motion.img
           src={pizza}
           alt="Pizza"
