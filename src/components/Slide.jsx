@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 const Slide = ({ slide }) => {
-  console.log(slide);
+  // console.log(slide);
   return (
     <div>
       <div
