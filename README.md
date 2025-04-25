@@ -58,7 +58,9 @@ This web application is designed to streamline restaurant operations while offer
 
 ---
 
-## 🔐 Default Credentials (for testing)
+## 🔐Setup Instructions
 
 ```bash
+git clone https://github.com/your-username/restaurant-management.git
+cd restaurant-management
 
