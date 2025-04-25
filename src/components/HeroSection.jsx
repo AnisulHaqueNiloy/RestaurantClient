@@ -5,21 +5,22 @@ import leaf from "../../src/assets/leaf.png";
 import pizza from "../../src/assets/pizza.png";
 import tomato from "../../src/assets/tomato.png";
 import bg from "../../src/assets/bg-2.jpeg";
+
 export default function HeroSection() {
   return (
     <div
-      className="flex justify-between px-5 py-5 items-center gap-2 flex-col-reverse md:flex-row bg-cover bg-no-repeat bg-center h-[500px]"
+      className="relative flex justify-between px-5 py-5 items-center gap-2 flex-col-reverse md:flex-row bg-cover bg-no-repeat bg-center h-[500px]"
       style={{ backgroundImage: `url(${bg})` }}
     >
       {/* Left Side */}
       <div className="z-10 space-y-4 max-w-xl">
-        <p className=" font-semibold text-lg uppercase text-white">
+        <p className="font-semibold text-lg uppercase text-white">
           Welcome Fresheat
         </p>
         <h1 className="text-4xl md:text-5xl font-extrabold text-white">
           Today <span className="text-yellow-400">Special</span> Food
         </h1>
-        <p className="text-orange-500 text-xl font-semibold ">
+        <p className="text-orange-500 text-xl font-semibold">
           Limited Time Offer
         </p>
         <motion.button
@@ -32,7 +33,7 @@ export default function HeroSection() {
       </div>
 
       {/* Pizza Section */}
-      <div className="relative mt-12 md:mt-0">
+      <div className="relative mt-12 md:mt-0 z-10">
         {/* Offer bubble */}
         <motion.div
           initial={{ scale: 0 }}
@@ -61,7 +62,7 @@ export default function HeroSection() {
       <motion.img
         src={leaf}
         alt="Leaf"
-        className="absolute top-4 left-4 w-16 opacity-60 z-50"
+        className="absolute top-4 left-4 w-16 opacity-60 z-20"
         animate={{ y: [0, 10, 0] }}
         transition={{
           duration: 2,
@@ -72,7 +73,7 @@ export default function HeroSection() {
       <motion.img
         src={tomato}
         alt="Tomato"
-        className="absolute bottom-4 right-4 w-20 opacity-80"
+        className="absolute bottom-4 right-4 w-20 opacity-80 z-20"
         animate={{ rotate: [0, 10, -10, 0] }}
         transition={{
           duration: 4,
