@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import Loader from "../Loader";
 import { BsStar } from "react-icons/bs";
 
 const Food = () => {
+  const { pathname } = useLocation();
   const [foods, setFoods] = useState([]); // Original food data
   const [filteredFoods, setFilteredFoods] = useState([]); // Filtered food data
   const [search, setSearch] = useState(""); // Search query
   const [loading, setLoading] = useState(true); // Loading state
   const [sortOrder, setSortOrder] = useState("asc"); // Sort order (asc or desc)
-
+  console.log(pathname);
   // Fetch all foods from the API
   useEffect(() => {
     fetch("https://restaurant-server-rouge.vercel.app/allfoods")
@@ -133,9 +134,11 @@ const Food = () => {
                   <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
                     <NavLink to={`/foods-detail/${food._id}`}>See more</NavLink>
                   </button>
-                  <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
-                    <NavLink to={`/update/${food._id}`}>Update</NavLink>
-                  </button>
+                  {!pathname == "/allfoods" && (
+                    <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
+                      <NavLink to={`/update/${food._id}`}>Update</NavLink>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
