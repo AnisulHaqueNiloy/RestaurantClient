@@ -64,3 +64,20 @@ This web application is designed to streamline restaurant operations while offer
 git clone https://github.com/your-username/restaurant-management.git
 cd restaurant-management
 
+Step2
+npm install
+
+Step 3
+Create a .env file in the root directory and add your Firebase and API configuration:
+VITE_API_URL=https://your-backend-url
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+
+Step 4
+Run the Project Locally
+npm run dev
+
