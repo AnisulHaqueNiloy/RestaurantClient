@@ -24,7 +24,7 @@ const OfferSection = () => {
                 Limited time offer
               </p>
               <button className="bg-red-600 px-4 py-2 text-white my-4">
-                <Link to={""}>Order now</Link>
+                <Link to={"/allfoods"}>Order now</Link>
               </button>
             </div>
             <div>
@@ -46,7 +46,7 @@ const OfferSection = () => {
                 Limited time offer
               </p>
               <button className="bg-red-600 px-4 py-2 text-white my-4">
-                <Link to={""}>Order now</Link>
+                <Link to={"/allfoods"}>Order now</Link>
               </button>
             </div>
             <div>
@@ -68,7 +68,7 @@ const OfferSection = () => {
                 Limited time offer
               </p>
               <button className="bg-red-600 px-4 py-2 text-white my-4">
-                <Link to={""}>Order now</Link>
+                <Link to={`/allfoods`}>Order now</Link>
               </button>
             </div>
             <div>

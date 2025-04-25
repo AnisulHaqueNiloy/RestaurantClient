@@ -134,7 +134,11 @@ const Food = () => {
                   <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
                     <NavLink to={`/foods-detail/${food._id}`}>See more</NavLink>
                   </button>
-                  {!pathname == "/allfoods" && (
+                  {pathname == "/allfoods" ? (
+                    <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
+                      <NavLink to={`/purchase/${food._id}`}>Purchase</NavLink>
+                    </button>
+                  ) : (
                     <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
                       <NavLink to={`/update/${food._id}`}>Update</NavLink>
                     </button>
