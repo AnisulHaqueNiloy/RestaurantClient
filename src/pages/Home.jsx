@@ -5,6 +5,7 @@ import TopSellingFoods from "../components/TopSellingFoods";
 import CuisineTimeline from "../components/CuisineTimeline";
 import DiscountBanner from "../components/DiscountBanner";
 import OfferSection from "../components/OfferSection";
+import HeroSection from "../components/HeroSection";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
         <TopSellingFoods></TopSellingFoods>
         <OfferSection></OfferSection>
         <CuisineTimeline></CuisineTimeline>
+        <HeroSection></HeroSection>
         <Testimonial></Testimonial>
         <DiscountBanner></DiscountBanner>
       </div>

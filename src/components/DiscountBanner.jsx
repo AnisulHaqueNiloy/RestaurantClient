@@ -1,6 +1,7 @@
 import React from "react";
 import { BsFillCartFill } from "react-icons/bs"; // Example icon, choose as needed
 import banner from "../../src/assets/banner.jpg";
+import { Link } from "react-router-dom";
 const DiscountBanner = () => {
   return (
     <div className=" py-8 my-14 bg-banner bg-no-repeat bg-cover bg-red-100 rounded-lg">
@@ -45,7 +46,9 @@ const DiscountBanner = () => {
         </div>
         {/* Optional: Add a call-to-action button */}
         <button className="mt-8 bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg">
-          <BsFillCartFill className="inline-block mr-2" /> Order Now
+          <Link to={"/allfoods"}>
+            <BsFillCartFill className="inline-block mr-2" /> Order Now
+          </Link>
         </button>
       </div>
     </div>
