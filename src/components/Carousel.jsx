@@ -15,7 +15,7 @@ const Carousel = () => {
       .then((res) => res.json())
       .then((data) => setslide(data));
   }, []);
-  console.log(slide);
+  // console.log(slide);
 
   return (
     <div>
