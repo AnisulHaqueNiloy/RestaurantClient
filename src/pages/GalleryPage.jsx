@@ -68,7 +68,7 @@ const GalleryPage = () => {
         desc={"Explore our amazing gallery"}
       ></PageTitle>
 
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
+      <div className="my-5 md:my-0 min-h-screen bg-gray-100 flex flex-col items-center justify-center">
         {/* Page Title */}
 
         {/* Gallery Section */}

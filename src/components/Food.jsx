@@ -66,7 +66,7 @@ const Food = () => {
       </div>
 
       {/* Sorting Buttons */}
-      <div className="flex justify-end gap-4 mb-6">
+      <div className="flex flex-col md:flex-row md:justify-end gap-4 mb-6">
         <button
           onClick={handleSortAsc}
           className={`btn ${

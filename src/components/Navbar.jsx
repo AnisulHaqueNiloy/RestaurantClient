@@ -2,9 +2,11 @@ import { NavLink } from "react-router-dom";
 import "../../src/index.css";
 import { AuthContext } from "../authprovider/AuthProvider";
 import { useContext, useEffect, useState } from "react";
+
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
+
   const link = (
     <>
       <li>
@@ -43,7 +45,6 @@ const Navbar = () => {
           onClick={() => logout()}
           className="flex items-center justify-center cursor-pointer  "
         >
-          {" "}
           Logout
         </li>
       ) : (
@@ -53,18 +54,20 @@ const Navbar = () => {
       )}
     </>
   );
+
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     document.documentElement.className = newTheme;
   };
+
   useEffect(() => {
     document.documentElement.className = theme;
   }, [theme]);
 
   return (
-    <div className="fixed w-full z-30 bg-red-600 ">
-      <div className="navbar   backdrop-blur-lg w-11/12 mx-auto">
+    <div className="fixed w-full z-30 bg-red-600 dark:bg-red-800">
+      <div className="navbar backdrop-blur-lg w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div
@@ -89,20 +92,25 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 space-x-4 shadow nav-links"
+              className="menu menu-sm dropdown-content bg-base-100 dark:bg-base-800 rounded-box z-[1] mt-3 w-52 p-2 space-x-4 shadow nav-links"
             >
               {link}
             </ul>
           </div>
-          <a href="/" className="btn btn-ghost text-xl">
+          <a
+            href="/"
+            className="btn btn-ghost text-xl text-white dark:text-gray-200"
+          >
             Restaurant
           </a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal  px-1 nav-links  ">{link}</ul>
+          <ul className="menu menu-horizontal px-1 nav-links text-white dark:text-gray-200">
+            {link}
+          </ul>
           <button
             onClick={toggleTheme}
-            className="btn bg-black/20 text-white btn-sm text-white border-white hover:bg-gray-700 hidden md:block"
+            className="btn bg-black/20 text-white dark:bg-white/20 dark:text-black btn-sm text-white border-white hover:bg-gray-700 hidden md:block"
           >
             {theme === "light" ? "Dark Mode" : "Light Mode"}
           </button>
@@ -110,20 +118,20 @@ const Navbar = () => {
         <div
           className={`dropdown navbar-end text-right dropdown-end ${
             user ? "block" : "hidden"
-          } `}
+          }`}
         >
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost btn-circle avatar  "
+            className="btn btn-ghost btn-circle avatar"
           >
-            <div className="w-10 rounded-full ">
-              <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
+            <div className="w-10 rounded-full">
+              <img alt="User avatar" src={user?.photoURL} />
             </div>
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow  "
+            className="menu menu-sm dropdown-content bg-base-100 dark:bg-base-800 rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
               <NavLink to="/myfoods">My Foods</NavLink>

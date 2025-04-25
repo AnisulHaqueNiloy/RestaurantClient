@@ -4,6 +4,7 @@ import Testimonial from "../components/Testimonial";
 import TopSellingFoods from "../components/TopSellingFoods";
 import CuisineTimeline from "../components/CuisineTimeline";
 import DiscountBanner from "../components/DiscountBanner";
+import OfferSection from "../components/OfferSection";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Carousel></Carousel>
       <div className="w-11/12 mx-auto">
         <TopSellingFoods></TopSellingFoods>
+        <OfferSection></OfferSection>
         <CuisineTimeline></CuisineTimeline>
         <Testimonial></Testimonial>
         <DiscountBanner></DiscountBanner>
