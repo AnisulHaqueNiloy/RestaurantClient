@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AiOutlineEye } from "react-icons/ai";
 import { NavLink, useLocation } from "react-router-dom";
 import Loader from "../Loader";
 import { BsStar } from "react-icons/bs";
+import { AuthContext } from "../authprovider/AuthProvider";
 
 const Food = () => {
+  const { user } = useContext(AuthContext);
   const { pathname } = useLocation();
   const [foods, setFoods] = useState([]); // Original food data
   const [filteredFoods, setFilteredFoods] = useState([]); // Filtered food data
@@ -135,11 +137,27 @@ const Food = () => {
                     <NavLink to={`/foods-detail/${food._id}`}>See more</NavLink>
                   </button>
                   {pathname == "/allfoods" ? (
-                    <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
-                      <NavLink to={`/purchase/${food._id}`}>Purchase</NavLink>
+                    <button
+                      className={`bg-red-500 px-3 py-2 rounded-lg shadow-md hover:bg-black hover:text-white ${
+                        food.AddBy?.Email === user?.email
+                          ? "opacity-50 cursor-not-allowed"
+                          : ""
+                      }`}
+                      disabled={food.AddBy?.Email === user?.email}
+                    >
+                      <NavLink
+                        to={`/purchase/${food._id}`}
+                        className={`${
+                          food.AddBy?.Email === user?.email
+                            ? "pointer-events-none"
+                            : ""
+                        }`}
+                      >
+                        Purchase
+                      </NavLink>
                     </button>
                   ) : (
-                    <button className="bg-red-500 px-1 py-1 rounded-lg shadow-md hover:bg-black hover:text-white">
+                    <button className="bg-green-500 px-3 py-2 rounded-lg shadow-md hover:bg-black hover:text-white">
                       <NavLink to={`/update/${food._id}`}>Update</NavLink>
                     </button>
                   )}
